@@ -1,3 +1,4 @@
+import API_KEY from "./apikey.js";
 /*1.Grab the Input*/
 
 document.querySelector(".js-go").addEventListener('click', function() {
@@ -21,9 +22,9 @@ function getUserInput() {
 }
 
 /*2.Do the data stuff with the API*/
-
 function searchGiphy( searchQuery ) {
-	var url = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=" + searchQuery;
+	const api = API_KEY;
+	var url = "https://api.giphy.com/v1/gifs/search?api_key=" + api + "&q=" + searchQuery;
 
 	// AJAX Request
 	var GiphyAJAXCall = new XMLHttpRequest();
@@ -35,8 +36,6 @@ function searchGiphy( searchQuery ) {
 
 			var actualData = data.target.response;
 			pushToDOM(actualData);
-			console.log(actualData);
-		
 	});
 
 }
